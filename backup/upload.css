@@ -1,0 +1,7 @@
+.upload-body-ui{
+    z-index: 9999 !important;
+    position: absolute !important;
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+}

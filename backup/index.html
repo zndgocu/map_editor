@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="cross_hair.css">
+
+
+    <script src="monitoring/library/jquery/jquery-3.6.1.slim.min.js"></script>
+    <script src="monitoring/library/jquery-ui/jquery-ui.min.js"></script>
+
+    <script src="three/Vector2.js"></script>
+    <script src="three/three.js"></script>
+    <script src="three/OrbitControls.js"></script>
+    <script src="three/stats.js"></script>
+    <script src="three/fflate.min.js"></script>
+    <script src="three/FBXLoader.js"></script>
+    <script src="three/SVGLoader.js"></script>
+
+    <script src="three/utils/BufferGeometryUtils.js"></script>
+
+    <script type="module" src="three/geometries/CircleGeometry.js"></script>
+    <script type="module" src="three/geometries/TextGeometry.js"></script>
+    <script type="module" src="three/geometries/EdgesGeometry.js"></script>
+    <script type="module" src="three/helpers/AxesHelper.js"></script>
+
+    <script src="monitoring/repository/delta_repository.js"></script>
+    <script src="monitoring/repository/editor_repository.js"></script>
+    <script src="monitoring/repository/map_repository.js"></script>
+    <script src="monitoring/repository/render_repository.js"></script>
+    <script src="monitoring/repository/input_repository.js"></script>
+    <script src="monitoring/repository/pick_repository.js"></script>
+
+
+    <script src="monitoring/sturcture/animate_properties.js"></script>
+    <script src="monitoring/sturcture/draw_properties.js"></script>
+    <script src="monitoring/sturcture/input_properties.js"></script>
+    <script src="monitoring/sturcture/grid_properties.js"></script>
+
+    <script src="monitoring/attribute/line_attribute.js"></script>
+    
+    
+    <script src="monitoring/attribute/open_map.js"></script>
+    <script src="monitoring/attribute/upload_map.js"></script>
+
+    <script src="index.js"></script>
+</head>
+
+<body class='full-wh'>
+    <div class="map_wrapper">
+        <div class="hair flex-block flex-col" id='crosshair-block'>
+            <label id='crosshair-text-floor'></label>
+            <label id='crosshair-text-object'></label>
+        </div>        
+        <div class="hair" id="crosshair-h"></div>
+        <div class="hair" id="crosshair-v"></div>
+    </div>
+    
+    <!--open-->
+    <div class='jquery-ui-item' id="dialog-div-open" title="Basic dialog">
+        <input type="file" id="open-image-path" accept="image/*" multiple=false>
+        <div>
+            <label>sizeX</label>
+            <input type='text' id='open-map-size-x'>
+        </div>
+        <div>
+            <label>sizeX</label>
+            <input type='text' id='open-map-size-y'>
+        </div>
+        <div>
+            <label>segment</label>
+            <input type='text' id='open-map-segment'>
+        </div>
+        <button id='open-ok'>OK</button>
+    </div>
+    
+    <!--map upload-->
+    <div class='jquery-ui-item' id="dialog-div-upload" title="Basic dialog">
+        <div>
+            <label>image</label>
+             <input type="file" id="upload-image-map" accept="image/*" multiple=false>
+        </div>
+        <div>
+            <label>json</label>
+             <input type="file" id="upload-json-map" accept="application/JSON" multiple=false>
+        </div>
+        <button id='upload-ok'>OK</button>
+    </div>
+    
+    <div class='canvas-body-draw' id='render-container'>
+    </div>
+    <div class='canvas-body-ui'>
+        <div class='abs-blcok' id='dlg-mouse'>
+            <label id='dlg-mouse-text' />
+        </div>
+        <div class='ui-block right top'>
+            <button onclick="OnClickButton('MapDownload')">Download</button>
+            <button onclick="OnClickButton('MapOpen')">MapOpen</button>
+            <button onclick="OnClickButton('MapUpload')">MapUpload</button>
+            <button onclick="OnClickButton('Test')">RunTest</button>
+            <button onclick="OnClickButton('Initialize')">Initialize</button>
+            <button onclick="OnClickButton('InitializeThree')">InitializeThree</button>
+            <button onclick="OnClickButton('InitializeThree')">InitializeAxes</button>
+            <button onclick="OnClickButton('InitializeGrid')">InitializeGrid</button>
+            <button onclick="OnClickButton('StartAnimate')">StartAnimate</button>
+            <button onclick="OnClickButton('InitializeHandler')">InitializeHandler</button>
+        </div>
+        <div class='ui-block-horizontal right'>
+            <div>
+                <button onclick="OnClickItem('node')">Node</button>
+                <button onclick="OnClickItem('line')">Line</button>
+            </div>
+            <div>
+                <input id='nodeScale' />
+                <button onclick="OnClickScaleSet('node')">ScaleSet:Node</button>
+            </div>
+        </div>
+        <div class='ui-block-horizontal left'>
+            <label id='state-mouse'></label>
+            <label id='state-grid-prop'></label>
+            <label id='state-grid-point'></label>
+            <label id='state-grid-line-point'></label>
+            <label id='line-first-point'></label>
+            <label id='line-second-point'></label>
+        </div>
+    </div>
+    <!-- <div class='canvas-body-ui'/>-->
+</body>
+
+</html>

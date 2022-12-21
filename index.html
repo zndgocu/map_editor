@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <!--#region css-->
+    <link rel="stylesheet" href="./editor/css/editor.css">
+    <link rel="stylesheet" href="./editor/css/crosshair.css">
+    <link rel="stylesheet" href="./editor/css/upload.css">
+    <!--#endregion-->
+
+    <!--#region jquery-->
+    <script src="./library/jquery/jquery-3.6.1.slim.min.js"></script>
+    <script src="./library/jquery-ui/jquery-ui.min.js"></script>
+    <!--#endregion-->
+
+    <!--#region three-->
+    <script src="./library/three/Vector2.js"></script>
+    <script src="./library/three/three.js"></script>
+    <script src="./library/three/OrbitControls.js"></script>
+    <script src="./library/three/stats.js"></script>
+    <script src="./library/three/fflate.min.js"></script>
+    <script src="./library/three/FBXLoader.js"></script>
+    <script src="./library/three/SVGLoader.js"></script>
+    <script src="./library/three/utils/BufferGeometryUtils.js"></script>
+    <script type="module" src="./library/three/geometries/CircleGeometry.js"></script>
+    <script type="module" src="./library/three/geometries/TextGeometry.js"></script>
+    <script type="module" src="./library/three/geometries/EdgesGeometry.js"></script>
+    <script type="module" src="./library/three/helpers/AxesHelper.js"></script>
+    <!--#endregion three-->
+    
+    <!--#region main-->
+    <script src="./editor/nativeModule/crosshair/crosshair.js"></script>
+    <script src="./editor/js/editor.js"></script>
+    <script src="./index.js" async></script>
+    <!--#endregion-->
+</head>
+<body class='full-wh'>
+    <div class="map_wrapper">
+        <div class="hair flex-block flex-col" id='crosshair-block'>
+            <label id='crosshair-text-floor'></label>
+            <label id='crosshair-text-object'></label>
+        </div>        
+        <div class="hair" id="crosshair-h"></div>
+        <div class="hair" id="crosshair-v"></div>
+    </div>
+    
+    <!--open-->
+    <div class='jquery-ui-item' id="dialog-div-open" title="Basic dialog">
+        <input type="file" id="open-image-path" accept="image/*" multiple=false>
+        <div>
+            <label>sizeX</label>
+            <input type='text' id='open-map-size-x'>
+        </div>
+        <div>
+            <label>sizeX</label>
+            <input type='text' id='open-map-size-y'>
+        </div>
+        <div>
+            <label>segment</label>
+            <input type='text' id='open-map-segment'>
+        </div>
+        <button id='open-ok'>OK</button>
+    </div>
+    
+    <!--map upload-->
+    <div class='jquery-ui-item' id="dialog-div-upload" title="Basic dialog">
+        <div>
+            <label>image</label>
+             <input type="file" id="upload-image-map" accept="image/*" multiple=false>
+        </div>
+        <div>
+            <label>json</label>
+             <input type="file" id="upload-json-map" accept="application/JSON" multiple=false>
+        </div>
+        <button id='upload-ok'>OK</button>
+    </div>
+    
+    <div class='canvas-body-draw' id='render-container'>
+    </div>
+    <div class='canvas-body-ui'>
+        <div class='abs-blcok' id='dlg-mouse'>
+            <label id='dlg-mouse-text' />
+        </div>
+        <div class='ui-block right top'>
+            <button onclick="OnClickButton('MapDownload')">Download</button>
+            <button onclick="OnClickButton('MapOpen')">MapOpen</button>
+            <button onclick="OnClickButton('MapUpload')">MapUpload</button>
+            <button onclick="OnClickButton('Test')">RunTest</button>
+            <button onclick="OnClickButton('Initialize')">Initialize</button>
+            <button onclick="OnClickButton('InitializeThree')">InitializeThree</button>
+            <button onclick="OnClickButton('InitializeThree')">InitializeAxes</button>
+            <button onclick="OnClickButton('InitializeGrid')">InitializeGrid</button>
+            <button onclick="OnClickButton('StartAnimate')">StartAnimate</button>
+            <button onclick="OnClickButton('InitializeHandler')">InitializeHandler</button>
+        </div>
+        <div class='ui-block-horizontal right'>
+            <div>
+                <button onclick="OnClickItem('node')">Node</button>
+                <button onclick="OnClickItem('line')">Line</button>
+            </div>
+            <div>
+                <input id='nodeScale' />
+                <button onclick="OnClickScaleSet('node')">ScaleSet:Node</button>
+            </div>
+        </div>
+        <div class='ui-block-horizontal left'>
+            <label id='state-mouse'></label>
+            <label id='state-grid-prop'></label>
+            <label id='state-grid-point'></label>
+            <label id='state-grid-line-point'></label>
+            <label id='line-first-point'></label>
+            <label id='line-second-point'></label>
+        </div>
+    </div>
+    <!-- <div class='canvas-body-ui'/>-->
+</body>
+
+</html>

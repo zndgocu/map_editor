@@ -1,0 +1,115 @@
+.jquery-ui-item{
+    z-index: 3 !important;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    position: absolute;
+}
+
+.full-wh {
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.canvas-body-draw {
+    z-index: 1 !important;
+    position: absolute !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    overflow: hidden;
+}
+
+.canvas-body-ui{
+    z-index: 2 !important;
+    position: absolute !important;
+    visibility: hidden;
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+}
+
+.canvas-body-ui .abs-blcok{
+    z-index: inherit;
+    visibility:hidden;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.canvas-body-ui .ui-block{
+    z-index: inherit;
+    position: absolute !important;
+    visibility: inherit;
+    display: flex;
+    flex-direction: row;
+}
+
+.canvas-body-ui .ui-block-horizontal{
+    z-index: inherit;
+    position: absolute !important;
+    visibility: inherit;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.right{
+    z-index: inherit;
+    position: inherit;
+    visibility: hidden;
+    right:0%;
+}
+
+.left{
+    z-index: inherit;
+    position: inherit;
+    visibility: hidden;
+    left:0%;
+}
+
+.top{
+    z-index: inherit;
+    position: inherit;
+    visibility: hidden;
+    top:0%;
+}
+
+.bottom{
+    z-index: inherit;
+    position: inherit;
+    visibility: hidden;
+    bottom:0%;
+}
+
+.center{
+    z-index: inherit;
+    position: inherit;
+    visibility: hidden;
+    top:50%;    
+}
+
+.canvas-body-ui button{
+    z-index: inherit;
+    visibility:visible;
+}
+.canvas-body-ui div{
+    z-index: inherit;
+    visibility:visible;
+}
+
+
+.canvas-body-ui label{
+    z-index: inherit;
+    visibility:inherit;
+}
+
+.absolute
+{
+    position: absolute;
+}
